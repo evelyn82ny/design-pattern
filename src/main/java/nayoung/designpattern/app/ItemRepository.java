@@ -3,6 +3,7 @@ package nayoung.designpattern.app;
 import lombok.RequiredArgsConstructor;
 import nayoung.designpattern.trace.LogTrace;
 import nayoung.designpattern.trace.TraceStatus;
+import nayoung.designpattern.trace.templateMethodPattern.AbstractTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.Map;
@@ -16,18 +17,17 @@ public class ItemRepository {
     private final LogTrace trace;
 
     public void order(String itemId) {
-        TraceStatus status = null;
-        try {
-            status = trace.begin("ItemRepository.order()");
-            if(!isExistItem(itemId)) {
-                throw new IllegalStateException("상품 없음");
+        AbstractTemplate<Void> template = new AbstractTemplate<>(trace) {
+            @Override
+            protected Void order() {
+                if (!isExistItem(itemId)) {
+                    throw new IllegalStateException("상품 없음");
+                }
+                sleep(1000);
+                return null;
             }
-            sleep(1000);
-            trace.end(status);
-        } catch (Exception e) {
-            trace.exception(status, e);
-            throw e;
-        }
+        };
+        template.execute("ItemRepository.order()");
     }
 
     private boolean isExistItem(String itemId) {
