@@ -23,4 +23,11 @@ public class StrategyPatternTest {
         context.execute(new StrategyOrder());
         context.execute(new StrategyRefund());
     }
+
+    @Test
+    void strategy_parameter_lambda() {
+        Context context = new Context();
+        context.execute(() -> log.info("order logic"));
+        context.execute(() -> log.info("refund logic"));
+    }
 }
