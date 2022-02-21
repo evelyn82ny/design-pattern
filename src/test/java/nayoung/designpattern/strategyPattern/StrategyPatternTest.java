@@ -8,12 +8,10 @@ public class StrategyPatternTest {
 
     @Test
     void strategy() {
-        Strategy strategyOrder = new StrategyOrder();
-        Context context1 = new Context(strategyOrder);
+        Context context1 = new Context(() -> log.info("order logic"));
         context1.execute();
 
-        Strategy strategyRefund = new StrategyRefund();
-        Context context2 = new Context(strategyRefund);
+        Context context2 = new Context(() -> log.info("refund logic"));
         context2.execute();
     }
 }
