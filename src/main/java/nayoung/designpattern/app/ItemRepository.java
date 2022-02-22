@@ -1,9 +1,7 @@
 package nayoung.designpattern.app;
 
 import lombok.RequiredArgsConstructor;
-import nayoung.designpattern.trace.LogTrace;
-import nayoung.designpattern.trace.TraceStatus;
-import nayoung.designpattern.trace.templateMethodPattern.AbstractTemplate;
+import nayoung.designpattern.trace.callback.TraceTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.Map;
@@ -14,20 +12,16 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ItemRepository {
 
     private Map<String, Long> items = new ConcurrentHashMap<>();
-    private final LogTrace trace;
+    private final TraceTemplate template;
 
     public void order(String itemId) {
-        AbstractTemplate<Void> template = new AbstractTemplate<>(trace) {
-            @Override
-            protected Void order() {
-                if (!isExistItem(itemId)) {
-                    throw new IllegalStateException("상품 없음");
-                }
-                sleep(1000);
-                return null;
+        template.execute("ItemRepository.order()", () -> {
+            if(!isExistItem(itemId)) {
+                throw new IllegalStateException("상품 없음");
             }
-        };
-        template.execute("ItemRepository.order()");
+            sleep(1000);
+            return null;
+        });
     }
 
     private boolean isExistItem(String itemId) {

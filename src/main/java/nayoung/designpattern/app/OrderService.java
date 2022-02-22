@@ -1,9 +1,7 @@
 package nayoung.designpattern.app;
 
 import lombok.RequiredArgsConstructor;
-import nayoung.designpattern.trace.LogTrace;
-import nayoung.designpattern.trace.TraceStatus;
-import nayoung.designpattern.trace.templateMethodPattern.AbstractTemplate;
+import nayoung.designpattern.trace.callback.TraceTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,16 +9,12 @@ import org.springframework.stereotype.Service;
 public class OrderService {
 
     private final ItemRepository itemRepository;
-    private final LogTrace trace;
+    private final TraceTemplate template;
 
     public void order(String itemId) {
-        AbstractTemplate<Void> template = new AbstractTemplate<>(trace) {
-            @Override
-            protected Void order() {
-                itemRepository.order(itemId);
-                return null;
-            }
-        };
-        template.execute("OrderService.order()");
+        template.execute("OrderService.order()", () -> {
+            itemRepository.order(itemId);
+            return null;
+        });
     }
 }
