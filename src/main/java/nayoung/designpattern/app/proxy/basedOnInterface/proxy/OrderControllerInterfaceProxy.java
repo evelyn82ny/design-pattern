@@ -1,9 +1,11 @@
-package nayoung.designpattern.app.proxy.basedOnInterface;
+package nayoung.designpattern.app.proxy.basedOnInterface.proxy;
 
 import lombok.RequiredArgsConstructor;
+import nayoung.designpattern.app.proxy.basedOnInterface.OrderControllerV1;
 import nayoung.designpattern.trace.LogTrace;
 import nayoung.designpattern.trace.TraceStatus;
 
+/*
 @RequiredArgsConstructor
 public class OrderControllerInterfaceProxy implements OrderControllerV1 {
 
@@ -24,3 +26,4 @@ public class OrderControllerInterfaceProxy implements OrderControllerV1 {
         }
     }
 }
+*/

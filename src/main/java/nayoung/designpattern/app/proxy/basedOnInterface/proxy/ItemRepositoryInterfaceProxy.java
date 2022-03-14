@@ -1,9 +1,11 @@
-package nayoung.designpattern.app.proxy.basedOnInterface;
+package nayoung.designpattern.app.proxy.basedOnInterface.proxy;
 
 import lombok.RequiredArgsConstructor;
+import nayoung.designpattern.app.proxy.basedOnInterface.ItemRepositoryV1;
 import nayoung.designpattern.trace.LogTrace;
 import nayoung.designpattern.trace.TraceStatus;
 
+/*
 @RequiredArgsConstructor
 public class ItemRepositoryInterfaceProxy implements ItemRepositoryV1 {
 
@@ -28,3 +30,4 @@ public class ItemRepositoryInterfaceProxy implements ItemRepositoryV1 {
         items.put(itemId, stock);
     }
 }
+*/

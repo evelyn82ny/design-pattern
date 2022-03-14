@@ -1,9 +1,14 @@
 package nayoung.designpattern.config;
 
+/*
 import nayoung.designpattern.app.proxy.basedOnInterface.*;
+import nayoung.designpattern.app.proxy.basedOnInterface.proxy.ItemRepositoryInterfaceProxy;
+import nayoung.designpattern.app.proxy.basedOnInterface.proxy.OrderControllerInterfaceProxy;
+import nayoung.designpattern.app.proxy.basedOnInterface.proxy.OrderServiceInterfaceProxy;
 import nayoung.designpattern.trace.LogTrace;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 
 @Configuration
 public class AppV1InterfaceConfig {
@@ -26,3 +31,4 @@ public class AppV1InterfaceConfig {
         return new ItemRepositoryInterfaceProxy(itemRepositoryV1Impl, logTrace);
     }
 }
+*/
