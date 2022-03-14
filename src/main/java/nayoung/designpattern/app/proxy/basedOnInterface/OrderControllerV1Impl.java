@@ -12,8 +12,14 @@ public class OrderControllerV1Impl implements OrderControllerV1 {
     }
 
     @Override
-    public String order(String itemId) {
-        orderService.order(itemId);
+    public String orderAndPrintLog(String itemId) {
+        orderService.orderAndPrintLog(itemId);
+        return "order success";
+    }
+
+    @Override
+    public String orderAndNoLog(String itemId) {
+        orderService.orderAndNoLog(itemId);
         return "order success";
     }
 }

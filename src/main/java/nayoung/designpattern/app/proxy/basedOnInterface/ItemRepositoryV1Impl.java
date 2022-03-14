@@ -3,7 +3,15 @@ package nayoung.designpattern.app.proxy.basedOnInterface;
 public class ItemRepositoryV1Impl implements ItemRepositoryV1 {
 
     @Override
-    public void order(String itemId) {
+    public void orderAndPrintLog(String itemId) {
+        if (!isExistItem(itemId)) {
+            throw new IllegalStateException("상품 없음");
+        }
+        sleep(1000);
+    }
+
+    @Override
+    public void orderAndNoLog(String itemId) {
         if(!isExistItem(itemId)) {
             throw new IllegalStateException("상품 없음");
         }

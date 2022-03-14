@@ -8,9 +8,13 @@ public class OrderServiceV1Impl implements OrderServiceV1 {
         this.itemRepository = itemRepository;
     }
 
-    @Override
-    public void order(String itemId) {
-        itemRepository.order(itemId);
+   @Override
+    public void orderAndPrintLog(String itemId) {
+        itemRepository.orderAndPrintLog(itemId);
     }
 
+    @Override
+    public void orderAndNoLog(String itemId) {
+        itemRepository.orderAndNoLog(itemId);
+    }
 }

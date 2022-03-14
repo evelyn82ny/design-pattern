@@ -7,6 +7,7 @@ public interface ItemRepositoryV1 {
 
     Map<String, Long> items = new ConcurrentHashMap<>();
 
-    void order(String itemId);
+    void orderAndPrintLog(String itemId);
+    void orderAndNoLog(String itemId);
     void save(String itemId, Long stock);
 }
