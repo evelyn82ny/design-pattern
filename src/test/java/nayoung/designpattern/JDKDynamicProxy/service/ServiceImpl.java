@@ -1,4 +1,4 @@
-package nayoung.designpattern.CGLIB.service;
+package nayoung.designpattern.JDKDynamicProxy.service;
 
 import lombok.extern.slf4j.Slf4j;
 

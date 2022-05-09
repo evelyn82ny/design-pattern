@@ -1,4 +1,4 @@
-package nayoung.designpattern.CGLIB.service;
+package nayoung.designpattern.JDKDynamicProxy.service;
 
 public interface ServiceInterface {
     void save();
