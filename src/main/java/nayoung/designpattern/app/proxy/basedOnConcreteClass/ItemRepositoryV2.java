@@ -8,7 +8,14 @@ public class ItemRepositoryV2 implements InitializingBean {
 
     private static final Map<String, Long> items = new ConcurrentHashMap<>();
 
-    public void order(String itemId) {
+    public void orderAndPrintLog(String itemId) {
+        if(!isExistItem(itemId)) {
+            throw new IllegalStateException("상품 없음");
+        }
+        sleep(1000);
+    }
+
+    public void orderAndNoLog(String itemId) {
         if(!isExistItem(itemId)) {
             throw new IllegalStateException("상품 없음");
         }

@@ -11,7 +11,11 @@ public class OrderServiceV2 {
         this.itemRepository = itemRepository;
     }
 
-    public void order(String itemId) {
-        itemRepository.order(itemId);
+    public void orderAndPrintLog(String itemId) {
+        itemRepository.orderAndPrintLog(itemId);
+    }
+
+    public void orderAndNoLog(String itemId) {
+        itemRepository.orderAndNoLog(itemId);
     }
 }

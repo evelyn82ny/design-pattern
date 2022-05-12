@@ -16,11 +16,11 @@ public class OrderServiceV2ConcreteProxy extends OrderServiceV2 {
     }
 
     @Override
-    public void order(String itemId) {
+    public void orderAndPrintLog(String itemId) {
         TraceStatus status = null;
         try {
             status = logTrace.begin("OrderService.order()");
-            target.order(itemId);
+            target.orderAndPrintLog(itemId);
             logTrace.end(status);
         } catch (Exception e) {
             logTrace.exception(status, e);

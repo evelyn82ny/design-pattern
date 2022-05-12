@@ -15,11 +15,11 @@ public class ItemRepositoryV2ConCreteProxy extends ItemRepositoryV2 {
     }
 
     @Override
-    public void order(String itemId) {
+    public void orderAndPrintLog(String itemId) {
         TraceStatus status = null;
         try {
             status = logTrace.begin("ItemRepository.order()");
-            target.order(itemId);
+            target.orderAndPrintLog(itemId);
             logTrace.end(status);
         } catch (Exception e) {
             logTrace.exception(status, e);

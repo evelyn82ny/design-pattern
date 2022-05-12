@@ -14,9 +14,15 @@ public class OrderControllerV2 {
         this.orderService = orderService;
     }
 
-    @GetMapping("/v2/order")
-    public String order(String itemId) {
-        orderService.order(itemId);
+    @GetMapping("/v2/order-printLog")
+    public String orderAndPrintLog(String itemId) {
+        orderService.orderAndPrintLog(itemId);
+        return "order success";
+    }
+
+    @GetMapping("/v2/order-noLog")
+    public String orderAndNoLog(String itemId) {
+        orderService.orderAndNoLog(itemId);
         return "order success";
     }
 }
