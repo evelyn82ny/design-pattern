@@ -1,10 +1,9 @@
 package nayoung.designpattern.app.proxy.basedOnConcreteClass;
 
-import org.springframework.beans.factory.InitializingBean;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class ItemRepositoryV2 implements InitializingBean {
+public class ItemRepositoryV2 {
 
     private static final Map<String, Long> items = new ConcurrentHashMap<>();
 
@@ -22,6 +21,10 @@ public class ItemRepositoryV2 implements InitializingBean {
         sleep(1000);
     }
 
+    public void save(String itemId, Long stock) {
+        items.put(itemId, stock);
+    }
+
     private boolean isExistItem(String itemId) {
         return items.containsKey(itemId);
     }
@@ -32,11 +35,5 @@ public class ItemRepositoryV2 implements InitializingBean {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void afterPropertiesSet() {
-        items.put("apple", 34L);
-        items.put("candy", 56L);
     }
 }
