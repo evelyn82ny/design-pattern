@@ -1,7 +1,10 @@
-package nayoung.designpattern.config;
+package nayoung.designpattern.config.basedonconcreatedclass;
 
 import lombok.extern.slf4j.Slf4j;
 import nayoung.designpattern.app.proxy.basedOnConcreteClass.*;
+import nayoung.designpattern.app.proxy.basedOnConcreteClass.proxy.ItemRepositoryV2ConCreteProxy;
+import nayoung.designpattern.app.proxy.basedOnConcreteClass.proxy.OrderControllerV2ConcreteProxy;
+import nayoung.designpattern.app.proxy.basedOnConcreteClass.proxy.OrderServiceV2ConcreteProxy;
 import nayoung.designpattern.trace.LogTrace;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
