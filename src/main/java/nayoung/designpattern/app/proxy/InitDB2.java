@@ -10,7 +10,6 @@ import javax.annotation.PostConstruct;
 @RequiredArgsConstructor
 public class InitDB2 {
 
-    /*
     private final ItemRepositoryV1 itemRepositoryV1;
 
     @PostConstruct
@@ -18,5 +17,4 @@ public class InitDB2 {
         itemRepositoryV1.save("apple", 34L);
         itemRepositoryV1.save("candy", 56L);
     }
-     */
 }
