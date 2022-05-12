@@ -1,6 +1,6 @@
 package nayoung.designpattern.app;
 
-import lombok.RequiredArgsConstructor;
+import nayoung.designpattern.trace.LogTrace;
 import nayoung.designpattern.trace.callback.TraceTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -8,11 +8,14 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Repository
-@RequiredArgsConstructor
 public class ItemRepository {
 
     private Map<String, Long> items = new ConcurrentHashMap<>();
     private final TraceTemplate template;
+
+    public ItemRepository(LogTrace trace) {
+        this.template = new TraceTemplate(trace);
+    }
 
     public void order(String itemId) {
         template.execute("ItemRepository.order()", () -> {
