@@ -5,7 +5,6 @@ import nayoung.designpattern.app.proxy.basedOnInterface.ItemRepositoryV1;
 import nayoung.designpattern.trace.LogTrace;
 import nayoung.designpattern.trace.TraceStatus;
 
-/*
 @RequiredArgsConstructor
 public class ItemRepositoryInterfaceProxy implements ItemRepositoryV1 {
 
@@ -13,11 +12,11 @@ public class ItemRepositoryInterfaceProxy implements ItemRepositoryV1 {
     private final LogTrace logTrace;
 
     @Override
-    public void order(String itemId) {
+    public void orderAndPrintLog(String itemId) {
         TraceStatus status = null;
         try {
             status = logTrace.begin("ItemRepository.order()");
-            target.order(itemId);
+            target.orderAndPrintLog(itemId);
             logTrace.end(status);
         } catch (Exception e) {
             logTrace.exception(status, e);
@@ -26,8 +25,12 @@ public class ItemRepositoryInterfaceProxy implements ItemRepositoryV1 {
     }
 
     @Override
+    public void orderAndNoLog(String itemId) {
+        target.orderAndNoLog(itemId);
+    }
+
+    @Override
     public void save(String itemId, Long stock) {
         items.put(itemId, stock);
     }
 }
-*/

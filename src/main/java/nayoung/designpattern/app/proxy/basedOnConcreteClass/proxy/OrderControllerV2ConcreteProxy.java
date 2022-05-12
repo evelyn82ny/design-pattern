@@ -1,5 +1,6 @@
-package nayoung.designpattern.app.proxy.basedOnConcreteClass;
+package nayoung.designpattern.app.proxy.basedOnConcreteClass.proxy;
 
+import nayoung.designpattern.app.proxy.basedOnConcreteClass.OrderControllerV2;
 import nayoung.designpattern.trace.LogTrace;
 import nayoung.designpattern.trace.TraceStatus;
 
