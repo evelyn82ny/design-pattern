@@ -1,4 +1,4 @@
-package nayoung.designpattern.config;
+package nayoung.designpattern.config.basedoninterface;
 
 import nayoung.designpattern.app.proxy.basedOnInterface.*;
 import nayoung.designpattern.trace.LogTrace;
