@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Slf4j
 @Configuration
-public class ProxyFactoryConfig {
+public class ProxyFactoryIntefaceConfig {
 
     @Bean
     public OrderControllerV1 orderControllerV1(LogTrace logTrace) {
